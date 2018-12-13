@@ -286,6 +286,10 @@ def install_req_from_req(
         PyPI.file_storage_domain,
         TestPyPI.file_storage_domain,
     ]
+    print('req.url: {}\ncomes_from: {}\n'.format(req.url, comes_from) +
+          'comes_from.link: {}\n'.format(comes_from.link) +
+          'comes_from.link.netloc: {}'.format(comes_from.link.netloc) +
+          'domains_not_allowed: {}'.format(domains_not_allowed))
     if req.url and comes_from and comes_from.link \
        and comes_from.link.netloc in domains_not_allowed:
         # Explicitly disallow pypi packages that depend on external urls
